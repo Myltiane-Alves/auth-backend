@@ -10,7 +10,7 @@ type WithSSRAuthOptions = {
   roles?: string[];
 }
 
-export function withSSRGuest<P>(fn: GetServerSideProps<P>, options?: WithSSRAuthOptions) {
+export function withSSRAuth<P>(fn: GetServerSideProps<P>, options?: WithSSRAuthOptions) {
   return async (ctx: GetServerSidePropsContext): Promise<GetServerSidePropsResult<P>> => {
     const cookies = parseCookies(ctx);
     const token = cookies['nextauth.token'];
